@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">TrabajoPOO</string>
+
+<!--PARA LA ACTIVITY DE REGISTRO-->
+    <string name="txt_bienvenido">BIENVENIDO</string>
+    <string name="txt_username">Usuario:</string>
+    <string name="et_usarname">Ingrese el nombre y apellido</string>
+    <string name="txt_facultad">Facultad:</string>
+    <string name="txt_profesion">Profesión:</string>
+    <string name="txt_sexo">Sexo:</string>
+    <string name="sexo_masculino">Varón</string>
+    <string name="sexo_femenino">Mujer</string>
+    <string name="txt_date">Nacimiento:</string>
+    <string name="txt_format_date">DD-MM-AAAA</string>
+    <string name="btn_ingresar">INGRESAR</string>
+
+
+
+
+
 </resources>
