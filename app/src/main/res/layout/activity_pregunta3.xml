@@ -16,7 +16,7 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/letra2bold"
         android:gravity="center"
-        android:text="PREGUNTA 2"
+        android:text="PREGUNTA 3"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="45sp"
@@ -30,12 +30,12 @@
     <TextView
 
         android:id="@+id/preg1"
-        android:layout_width="385dp"
-        android:layout_height="78dp"
+        android:layout_width="378dp"
+        android:layout_height="109dp"
         android:layout_marginTop="152dp"
         android:fontFamily="@font/letra2bold"
         android:gravity="center"
-        android:text="Una hora antes de dormir realizo ejercicio físico"
+        android:text="Cosumo alcohol, tabaco o cafe cuatro horas antes de ir a la cama"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="32sp"
@@ -44,7 +44,6 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <RadioGroup
-        android:id="@+id/opciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="350dp"
@@ -70,7 +69,6 @@
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:fontFamily="@font/letra2bold"
-                android:onClick="mostrarPanel"
                 android:text="Siempre"
                 android:textSize="24sp" />
         </FrameLayout>

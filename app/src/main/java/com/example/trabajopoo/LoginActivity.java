@@ -102,6 +102,13 @@ public class LoginActivity extends AppCompatActivity {
 
 
         });
+        btnIngresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, Pregunta1.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -110,17 +117,18 @@ public class LoginActivity extends AppCompatActivity {
         String nombre=userName.getText().toString();
         String fecha_s=fecha.getText().toString();
 
-        if (nombre.isEmpty()){
-            Toast.makeText(this, "Ingrese su nombre",Toast.LENGTH_LONG).show();
-
+        if (nombre.equals("")){
+            Toast error= Toast.makeText(this, "Ingrese su nombre",Toast.LENGTH_LONG);
+            error.show();
         }
 
-        if (fecha_s.isEmpty()){
-            Toast.makeText(this, "Ingrese la fecha",Toast.LENGTH_LONG).show();
+        if (fecha_s.equals("")){
+            Toast error= Toast.makeText(this, "Ingrese la fecha",Toast.LENGTH_LONG);
+            error.show();
         } //falta
 
-        if (!(nombre.isEmpty()) && !(fecha_s.isEmpty())){
-            Intent iIngresarPreguntas = new Intent(this, Pregunta1.class);
+        if (!nombre.equals("")&&!fecha_s.equals("")){
+            Intent iIngresarPreguntas = new Intent(this, MainActivity.class);
             iIngresarPreguntas.putExtra("userName",nombre);
             startActivity(iIngresarPreguntas);
         }

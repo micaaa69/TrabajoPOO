@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -30,8 +31,13 @@ public class Pregunta1 extends AppCompatActivity {
         rdbtn3 = findViewById(R.id.rdbtn3);
         rdbtn4 = findViewById(R.id.rdbtn4);
         rdbtn5 = findViewById(R.id.rdbtn5);
-        btnsgte = findViewById(R.id.btnsgte);
 
+        btnsgte = findViewById(R.id.btnsgte);
+        /*RadioButtomAdapter radioButtomAdapter = new RadioButtomAdapter();
+        ListView listView = (ListView) findViewById(R.id.containerpreguntas);
+        listView.setAdapter(radioButtomAdapter);
+
+*/
         btnsgte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,11 +46,10 @@ public class Pregunta1 extends AppCompatActivity {
 
             }
 
-
         });
     }
 
-    public void opciones(View view){
+    public void mostrarPanel(View view){
         boolean checked = ((RadioButton) view).isChecked();
 
 

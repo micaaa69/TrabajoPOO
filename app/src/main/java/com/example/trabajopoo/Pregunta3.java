@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-public class Pregunta2 extends AppCompatActivity {
+public class Pregunta3 extends AppCompatActivity {
     private TextView preg1;
     private RadioButton rdbtn1;
     private RadioButton rdbtn2;
@@ -19,11 +19,10 @@ public class Pregunta2 extends AppCompatActivity {
     private Button btnsgte;
     private Button btnante;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pregunta2);
+        setContentView(R.layout.activity_pregunta3);
         preg1 = findViewById(R.id.preg1);
         rdbtn1 = findViewById(R.id.rdbtn1);
         rdbtn2 = findViewById(R.id.rdbtn2);
@@ -36,7 +35,7 @@ public class Pregunta2 extends AppCompatActivity {
         btnante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Pregunta2.this, Pregunta1.class);
+                Intent intent = new Intent(Pregunta3.this, Pregunta2.class);
                 startActivity(intent);
 
             }
@@ -45,15 +44,14 @@ public class Pregunta2 extends AppCompatActivity {
         });
         btnsgte.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view  ) {
-                Intent intent = new Intent(Pregunta2.this, Pregunta3.class);
+                Intent intent = new Intent(Pregunta3.this, Pregunta4.class);
                 startActivity(intent);
             }
         });
-    }
 
-    public void opcion(View view){
-        boolean checked = ((RadioButton) view).isChecked();
+
 
 
     }
+
 }

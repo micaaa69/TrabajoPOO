@@ -4,11 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo"
-    android:orientation="vertical"
-    tools:context=".Pregunta1">
-
-
+    tools:context=".Pregunta4">
     <TextView
         android:layout_width="234dp"
         android:layout_height="104dp"
@@ -16,7 +12,7 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/letra2bold"
         android:gravity="center"
-        android:text="PREGUNTA 2"
+        android:text="PREGUNTA 4"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="45sp"
@@ -35,7 +31,7 @@
         android:layout_marginTop="152dp"
         android:fontFamily="@font/letra2bold"
         android:gravity="center"
-        android:text="Una hora antes de dormir realizo ejercicio físico"
+        android:text="Me voy a dormir sintiendome estresado, molesto, triste o nervioso"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="32sp"
@@ -44,7 +40,6 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <RadioGroup
-        android:id="@+id/opciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="350dp"
@@ -70,7 +65,6 @@
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:fontFamily="@font/letra2bold"
-                android:onClick="mostrarPanel"
                 android:text="Siempre"
                 android:textSize="24sp" />
         </FrameLayout>
@@ -176,5 +170,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
