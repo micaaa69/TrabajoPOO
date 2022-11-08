@@ -102,13 +102,13 @@ public class LoginActivity extends AppCompatActivity {
 
 
         });
-        btnIngresar.setOnClickListener(new View.OnClickListener() {
+        /*btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, Pregunta1.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
     }
 
@@ -128,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
         } //falta
 
         if (!nombre.equals("")&&!fecha_s.equals("")){
-            Intent iIngresarPreguntas = new Intent(this, MainActivity.class);
+            Intent iIngresarPreguntas = new Intent(this, Pregunta1.class);
             iIngresarPreguntas.putExtra("userName",nombre);
             startActivity(iIngresarPreguntas);
         }
