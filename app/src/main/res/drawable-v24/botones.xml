@@ -1,59 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/fondo"
-    android:orientation="vertical"
-    tools:context=".Pregunta1">
-
-
-    <TextView
-        android:layout_width="234dp"
-        android:layout_height="104dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/letra2bold"
-        android:gravity="center"
-        android:text="PREGUNTA 1"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="45sp"
-        app:layout_constraintBottom_toTopOf="@+id/preg1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-
-        android:id="@+id/preg1"
-        android:layout_width="385dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="152dp"
-        android:fontFamily="@font/letra2bold"
-        android:gravity="center"
-        android:text="Todas las noches voy a la cama a diferentes horas"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp" />
-
+    android:layout_height="match_parent">
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="350dp"
         android:layout_marginLeft="350dp"
-        android:layout_marginTop="308dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnante"
-        app:layout_constraintEnd_toStartOf="@+id/preg1"
-        app:layout_constraintHorizontal_bias="0.451"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="230dp"
+        tools:ignore="MissingConstraints">
 
         <FrameLayout
             android:layout_width="340dp"
@@ -143,23 +100,4 @@
 
     </RadioGroup>
 
-    <Button
-        android:id="@+id/btnsgte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="233dp"
-        android:layout_marginLeft="233dp"
-        android:fontFamily="@font/letra2bold"
-        android:text="Siguiente"
-        android:textColor="#000000"
-        app:backgroundTint="#C8E7F2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.594"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</shape>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="350dp"
+            android:layout_marginLeft="350dp"
+            android:layout_marginTop="230dp"
+            >
+
+            <FrameLayout
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bordes"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <RadioButton
+                    android:id="@+id/rdbtn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:fontFamily="@font/letra2bold"
+                    android:text="Siempre"
+                    android:textSize="24sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bordes"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <RadioButton
+                    android:id="@+id/rdbtn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/letra2bold"
+                    android:text="Frecuentamente"
+                    android:textSize="24sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bordes"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <RadioButton
+                    android:id="@+id/rdbtn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/letra2bold"
+                    android:text="A veces"
+                    android:textSize="24sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bordes"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <RadioButton
+                    android:id="@+id/rdbtn4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/letra2bold"
+                    android:text="Rara vez"
+                    android:textSize="24sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bordes"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <RadioButton
+                    android:id="@+id/rdbtn5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/letra2bold"
+                    android:text="Nunca"
+                    android:textSize="24sp" />
+            </FrameLayout>
+
+        </RadioGroup>
+</shape>

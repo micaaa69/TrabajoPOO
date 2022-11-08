@@ -43,6 +43,12 @@ public class Pregunta2 extends AppCompatActivity {
 
 
         });
+        btnsgte.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view  ) {
+                Intent intent = new Intent(Pregunta2.this, Pregunta3.class);
+                startActivity(intent);
+            }
+        });
     }
     public void opciones(View view){
         boolean checked = ((RadioButton) view).isChecked();

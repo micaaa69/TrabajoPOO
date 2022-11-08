@@ -4,11 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo"
-    android:orientation="vertical"
-    tools:context=".Pregunta1">
-
-
+    tools:context=".Pregunta4">
     <TextView
         android:layout_width="234dp"
         android:layout_height="104dp"
@@ -16,7 +12,7 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/letra2bold"
         android:gravity="center"
-        android:text="PREGUNTA 1"
+        android:text="PREGUNTA 4"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="45sp"
@@ -35,7 +31,7 @@
         android:layout_marginTop="152dp"
         android:fontFamily="@font/letra2bold"
         android:gravity="center"
-        android:text="Todas las noches voy a la cama a diferentes horas"
+        android:text="Me voy a dormir sintiendome estresado, molesto, triste o nervioso"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="32sp"
@@ -48,10 +44,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="350dp"
         android:layout_marginLeft="350dp"
-        android:layout_marginTop="308dp"
+        android:layout_marginTop="230dp"
         app:layout_constraintBottom_toTopOf="@+id/btnante"
         app:layout_constraintEnd_toStartOf="@+id/preg1"
-        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -160,6 +156,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
+    <Button
+        android:id="@+id/btnante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/letra2bold"
+        android:text="Anterior"
+        android:textColor="#000000"
+        app:backgroundTint="#C8E7F2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,7 +16,7 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/letra2bold"
         android:gravity="center"
-        android:text="PREGUNTA 1"
+        android:text="PREGUNTA 3"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="45sp"
@@ -30,12 +30,12 @@
     <TextView
 
         android:id="@+id/preg1"
-        android:layout_width="385dp"
-        android:layout_height="78dp"
+        android:layout_width="378dp"
+        android:layout_height="109dp"
         android:layout_marginTop="152dp"
         android:fontFamily="@font/letra2bold"
         android:gravity="center"
-        android:text="Todas las noches voy a la cama a diferentes horas"
+        android:text="Cosumo alcohol, tabaco o cafe cuatro horas antes de ir a la cama"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="32sp"
@@ -48,10 +48,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="350dp"
         android:layout_marginLeft="350dp"
-        android:layout_marginTop="308dp"
+        android:layout_marginTop="230dp"
         app:layout_constraintBottom_toTopOf="@+id/btnante"
         app:layout_constraintEnd_toStartOf="@+id/preg1"
-        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -160,6 +160,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
-
+    <Button
+        android:id="@+id/btnante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/letra2bold"
+        android:text="Anterior"
+        android:textColor="#000000"
+        app:backgroundTint="#C8E7F2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
