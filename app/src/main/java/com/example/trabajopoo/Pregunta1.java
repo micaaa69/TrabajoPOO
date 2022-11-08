@@ -49,7 +49,7 @@ public class Pregunta1 extends AppCompatActivity {
         });
     }
 
-    public void opciones(View view){
+    public void mostrarPanel(View view){
         boolean checked = ((RadioButton) view).isChecked();
 
 
