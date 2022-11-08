@@ -32,12 +32,12 @@ public class Pregunta4 extends AppCompatActivity {
         btnsgte = findViewById(R.id.btnsgte);
         btnante = findViewById(R.id.btnante);
 
-        /*btnsgte.setOnClickListener(new View.OnClickListener(){
+        btnsgte.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view  ) {
                 Intent intent = new Intent(Pregunta4.this, Pregunta5.class);
                 startActivity(intent);
             }
-        });*/
+        });
         btnante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
