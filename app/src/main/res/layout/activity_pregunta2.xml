@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:fontFamily="@font/letra2bold"
-                android:onClick="mostrarPanel"
+                android:onClick="mostrarPanel2"
                 android:text="Siempre"
                 android:textSize="24sp" />
         </FrameLayout>

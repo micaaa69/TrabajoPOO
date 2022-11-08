@@ -49,7 +49,8 @@ public class Pregunta6 extends AppCompatActivity {
 
         });
         /*public void opcion(View view){
-            boolean checked =
+            boolean checked =(RadioButton) view).();
+
         }
         public void opcion(View view ){
             boolean checked = ((RadioButton) view).isChecked();}*/

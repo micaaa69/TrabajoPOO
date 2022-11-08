@@ -49,7 +49,6 @@
         android:layout_marginStart="350dp"
         android:layout_marginLeft="350dp"
         android:layout_marginTop="308dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnante"
         app:layout_constraintEnd_toStartOf="@+id/preg1"
         app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:fontFamily="@font/letra2bold"
+                android:onClick="mostrarPanel"
                 android:text="Siempre"
                 android:textSize="24sp" />
         </FrameLayout>
