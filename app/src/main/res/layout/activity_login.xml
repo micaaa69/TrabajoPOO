@@ -178,7 +178,7 @@
                     android:fontFamily="@font/letra2bold"
                     android:text="@string/sexo_masculino"
                     android:textSize="20sp"
-                    app:buttonTint="#7000648A" />
+                    app:buttonTint="#245061" />
 
                 <RadioButton
                     android:id="@+id/rb_mujer"
@@ -188,7 +188,7 @@
                     android:fontFamily="@font/letra2bold"
                     android:text="@string/sexo_femenino"
                     android:textSize="20sp"
-                    app:buttonTint="7000648A" />
+                    app:buttonTint="#245061" />
             </RadioGroup>
         </LinearLayout>
 

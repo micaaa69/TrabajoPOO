@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TrabajoPOO</string>
 
-<!--PARA LA ACTIVITY DE REGISTRO-->
+    <!--PARA LA ACTIVITY DE REGISTRO-->
     <string name="txt_bienvenido">BIENVENIDO</string>
     <string name="txt_username">Usuario:</string>
     <string name="et_usarname">Ingrese el nombre y apellido</string>
@@ -13,9 +13,6 @@
     <string name="txt_date">Nacimiento:</string>
     <string name="txt_format_date">DD-MM-AAAA</string>
     <string name="btn_ingresar">INGRESAR</string>
-
-
-
 
 
 </resources>
