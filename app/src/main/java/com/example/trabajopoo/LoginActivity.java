@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     String profesion;
     EditText userName, fecha;
     ImageButton btn_calendario;
+    Button btnIngresar;
 
 
     @Override
@@ -40,11 +41,14 @@ public class LoginActivity extends AppCompatActivity {
         userName=findViewById(R.id.et_user);
         fecha=findViewById(R.id.et_date);
         btn_calendario=findViewById(R.id.btn_calendario);
+        btnIngresar=findViewById(R.id.button3);
 
         Calendar calendario=Calendar.getInstance();
         int year=calendario.get(Calendar.YEAR);
         int month=calendario.get(Calendar.MONTH);
         int day=calendario.get(Calendar.DAY_OF_MONTH);
+
+
 
         btn_calendario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                 },year,month,day);
                 dialog.show();
             }
+
         });
 
 
@@ -94,7 +99,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
                 profesion=parent.getItemAtPosition(i).toString();
             }
+
+
         });
+        btnIngresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, Pregunta1.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -119,5 +134,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
+
 
 }

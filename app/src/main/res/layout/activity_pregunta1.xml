@@ -4,6 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondo"
+    android:orientation="vertical"
     tools:context=".Pregunta1">
+
+    <TextView
+        android:id="@+id/preg1"
+        android:layout_width="306dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/letra2bold"
+        android:gravity="center"
+        android:text="1. Todas las noches voy a la cama a diferentes horas"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="52dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="215dp"
+        android:layout_height="231dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="380dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preg1">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/rdbtn1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:fontFamily="@font/letra2bold"
+                android:text="Siempre"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/rdbtn2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/letra2bold"
+                android:text="Frecuentamente"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/rdbtn3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/letra2bold"
+                android:text="A veces"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/rdbtn4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/letra2bold"
+                android:text="Rara vez"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/rdbtn5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/letra2bold"
+                android:text="Nunca"
+                android:textSize="24sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnsgte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="233dp"
+        android:layout_marginLeft="233dp"
+        android:fontFamily="@font/letra2bold"
+        android:text="Siguiente"
+        android:textColor="#000000"
+        app:backgroundTint="#C8E7F2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.995" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
