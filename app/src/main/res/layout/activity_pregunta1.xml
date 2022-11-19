@@ -32,7 +32,7 @@
         android:id="@+id/preg1"
         android:layout_width="385dp"
         android:layout_height="78dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="172dp"
         android:fontFamily="@font/letra2bold"
         android:gravity="center"
         android:text="Todas las noches voy a la cama a diferentes horas"
@@ -41,105 +41,69 @@
         android:textSize="32sp"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="10dp" />
 
     <RadioGroup
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="350dp"
         android:layout_marginLeft="350dp"
-        android:layout_marginTop="308dp"
+        android:layout_marginTop="300dp"
         app:layout_constraintBottom_toTopOf="@+id/btnante"
         app:layout_constraintEnd_toStartOf="@+id/preg1"
-        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <FrameLayout
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
+        <RadioButton
+            android:id="@+id/rdbtn1"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/bordes"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp">
+            android:background="@drawable/borderbutton"
+            android:checked="false"
+            android:fontFamily="@font/letra2bold"
+            android:text="Siempre"
+            android:textSize="24sp" />
 
-            <RadioButton
-                android:id="@+id/rdbtn1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:fontFamily="@font/letra2bold"
-                android:text="Siempre"
-                android:textSize="24sp" />
-        </FrameLayout>
-
-        <FrameLayout
+        <RadioButton
+            android:id="@+id/rdbtn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/bordes"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp">
+            android:background="@drawable/borderbutton"
+            android:fontFamily="@font/letra2bold"
+            android:text="Frecuentamente"
+            android:textSize="24sp" />
 
-            <RadioButton
-                android:id="@+id/rdbtn2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/letra2bold"
-                android:text="Frecuentamente"
-                android:textSize="24sp" />
-        </FrameLayout>
-
-        <FrameLayout
+        <RadioButton
+            android:id="@+id/rdbtn3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/bordes"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp">
+            android:background="@drawable/borderbutton"
+            android:fontFamily="@font/letra2bold"
+            android:text="A veces"
+            android:textSize="24sp" />
 
-            <RadioButton
-                android:id="@+id/rdbtn3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/letra2bold"
-                android:text="A veces"
-                android:textSize="24sp" />
-        </FrameLayout>
-
-        <FrameLayout
+        <RadioButton
+            android:id="@+id/rdbtn4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/bordes"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp">
+            android:background="@drawable/borderbutton"
+            android:fontFamily="@font/letra2bold"
+            android:text="Rara vez"
+            android:textSize="24sp" />
 
-            <RadioButton
-                android:id="@+id/rdbtn4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/letra2bold"
-                android:text="Rara vez"
-                android:textSize="24sp" />
-        </FrameLayout>
-
-        <FrameLayout
+        <RadioButton
+            android:id="@+id/rdbtn5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/bordes"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp">
-
-            <RadioButton
-                android:id="@+id/rdbtn5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/letra2bold"
-                android:text="Nunca"
-                android:textSize="24sp" />
-        </FrameLayout>
+            android:background="@drawable/borderbutton"
+            android:fontFamily="@font/letra2bold"
+            android:text="Nunca"
+            android:textSize="24sp" />
 
     </RadioGroup>
 
