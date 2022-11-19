@@ -29,7 +29,7 @@ public class Pregunta5 extends AppCompatActivity {
         rdbtn3 = findViewById(R.id.rdbtn3);
         rdbtn4 = findViewById(R.id.rdbtn4);
         rdbtn5 = findViewById(R.id.rdbtn5);
-        btnsgte = findViewById(R.id.btnsgte);
+        btnsgte = findViewById(R.id.btnsgt);
         btnante = findViewById(R.id.btnante);
 
         btnsgte.setOnClickListener(new View.OnClickListener(){
