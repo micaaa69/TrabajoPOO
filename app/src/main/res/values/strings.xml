@@ -3,10 +3,17 @@
 
     <!--PARA LA ACTIVITY DE REGISTRO-->
     <string name="txt_bienvenido">BIENVENIDO</string>
+
+    <string name="txt_tipo">SELECCIONE SU OCUPACIÓN EN LA UNIVERSIDAD</string>
+    <string name="tipo_alumno">ALUMNO</string>
+    <string name="tipo_profesor">PROFESOR</string>
+    <string name="tipo_admin">ADMINISTRADOR</string>
+
     <string name="txt_username">Usuario:</string>
-    <string name="et_usarname">Ingrese el nombre y apellido</string>
     <string name="txt_facultad">Facultad:</string>
     <string name="txt_profesion">Profesión:</string>
+    <string name="txt_departamento_profe">Departamento:</string>
+    <string name="txt_centro_costo">Centro costo:</string>
     <string name="txt_sexo">Sexo:</string>
     <string name="sexo_masculino">Varón</string>
     <string name="sexo_femenino">Mujer</string>
