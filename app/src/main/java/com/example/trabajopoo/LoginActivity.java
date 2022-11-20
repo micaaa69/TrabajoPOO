@@ -123,18 +123,18 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-//        btnIngresar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(LoginActivity.this, Pregunta1.class);
-//                startActivity(intent);
-//            }
-//        });
+        btnIngresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, Pregunta1.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
 
-    public void ingresar (View view){
+    public void Ingresar (View view){
         String nombre=userName.getText().toString();
         String fecha_s=fecha.getText().toString();
 

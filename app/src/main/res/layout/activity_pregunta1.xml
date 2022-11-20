@@ -9,29 +9,15 @@
     tools:context=".Pregunta1">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="104dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/letra2bold"
-        android:gravity="center"
-        android:text="PREGUNTA 1"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="45sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Space
         android:layout_width="match_parent"
-        android:layout_height="11dp" />
+        android:layout_height="26dp" />
 
     <ListView
-        android:id="@+id/pregunta_contenedor"
+        android:id="@+id/contenedor_pregunta"
         android:layout_width="match_parent"
-        android:layout_height="169dp" />
+        android:layout_height="wrap_content"
+        />
 
     <Space
         android:layout_width="match_parent"

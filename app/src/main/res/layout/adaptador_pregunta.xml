@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <TextView
+        android:id="@+id/titulo_pregunta"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:background="@color/fondo"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:text="TextView" />
+
+    <TextView
         android:id="@+id/texto_pregunta"
-        android:text="Te vas a dormir a distintas horas ?"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:background="@color/fondo"
         android:fontFamily="@font/letra2bold"
-        android:textSize="20sp"
+        android:textColor="@color/black"
         android:gravity="center"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        ></TextView>
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="Hola"
+        android:textSize="20sp" />
 
-</RelativeLayout>
+</LinearLayout>
