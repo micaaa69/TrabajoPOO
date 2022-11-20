@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,51 +9,20 @@
     tools:context=".Pregunta1">
 
 
-    <TextView
-        android:layout_width="234dp"
-        android:layout_height="104dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/letra2bold"
-        android:gravity="center"
-        android:text="PREGUNTA 2"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="45sp"
-        app:layout_constraintBottom_toTopOf="@+id/preg1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+    <ListView
+        android:id="@+id/contenedor_preguntas2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-    <TextView
-
-        android:id="@+id/preg1"
-        android:layout_width="385dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="152dp"
-        android:fontFamily="@font/letra2bold"
-        android:gravity="center"
-        android:text="Una hora antes de dormir realizo ejercicio físico"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
 
     <RadioGroup
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="350dp"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="230dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnante"
-        app:layout_constraintEnd_toStartOf="@+id/preg1"
-        app:layout_constraintHorizontal_bias="0.459"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <RadioButton
             android:id="@+id/rdbtn1"
@@ -98,45 +67,42 @@
 
         <RadioButton
             android:id="@+id/rdbtn5"
-            android:background="@drawable/borderbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/borderbutton"
             android:fontFamily="@font/letra2bold"
             android:text="Nunca"
             android:textSize="24sp" />
-
     </RadioGroup>
 
-    <Button
-        android:id="@+id/btnsgt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="233dp"
-        android:layout_marginLeft="233dp"
-        android:fontFamily="@font/letra2bold"
-        android:text="Siguiente"
-        android:textColor="#000000"
-        app:backgroundTint="#C8E7F2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.594"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="36dp" />
 
-    <Button
-        android:id="@+id/btnante"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ll_contenedor"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/letra2bold"
-        android:text="Anterior"
-        android:textColor="#000000"
-        app:backgroundTint="#C8E7F2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        android:orientation="horizontal"
+        android:gravity="center">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnante"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:fontFamily="@font/letra2bold"
+            android:text="Anterior"
+            android:textColor="#000000"
+            app:backgroundTint="#C8E7F2" />
+
+        <Button
+            android:id="@+id/btnsgt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:fontFamily="@font/letra2bold"
+            android:text="Siguiente"
+            android:textColor="#000000"
+            app:backgroundTint="#C8E7F2" />
+    </LinearLayout>
+
+</LinearLayout>
