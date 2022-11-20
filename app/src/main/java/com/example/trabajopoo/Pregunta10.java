@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class Pregunta10 extends AppCompatActivity {
     private TextView preg1;
     private RadioButton rdbtn1;
@@ -40,6 +42,9 @@ public class Pregunta10 extends AppCompatActivity {
                 startActivity(intent);
             }
         });*/
+        ArrayList<String> respuestas = getIntent().getStringArrayListExtra("Respuesta");
+        
+
         btnante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,9 +57,5 @@ public class Pregunta10 extends AppCompatActivity {
         });
 
     }
-    public void mostrarPanel(View view){
-        boolean checked = ((RadioButton) view).isChecked();
 
-
-    }
 }

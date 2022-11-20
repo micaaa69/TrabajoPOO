@@ -22,13 +22,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import adaptador.AdaptadorPregunta;
 
 public class Pregunta1 extends AppCompatActivity {
-    private ArrayList <String> array_respuestas;
-    private TextView preg1;
-    private String resupuesta;
+    private String respuesta = "";
     private RadioButton rdbtn1;
     private RadioButton rdbtn2;
     private RadioButton rdbtn3;
@@ -51,19 +50,56 @@ public class Pregunta1 extends AppCompatActivity {
         listView = findViewById(R.id.contenedor_pregunta);
         listView.setAdapter(adaptadorPregunta);
 
+        this.rdbtn1 = findViewById(R.id.rdbtn1);
+        this.rdbtn1.setOnClickListener(this::onCheckedListener);
+
+        this.rdbtn2 = findViewById(R.id.rdbtn2);
+        this.rdbtn2.setOnClickListener(this::onCheckedListener);
+
+        this.rdbtn3 = findViewById(R.id.rdbtn3);
+        this.rdbtn3.setOnClickListener(this::onCheckedListener);
+
+        this.rdbtn4 = findViewById(R.id.rdbtn4);
+        this.rdbtn4.setOnClickListener(this::onCheckedListener);
+
+        this.rdbtn5 = findViewById(R.id.rdbtn5);
+        this.rdbtn5.setOnClickListener(this::onCheckedListener);
+
         btnsgte = findViewById(R.id.btnsgt);
-        btnsgte.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Pregunta1.this, Pregunta2.class);
-                startActivity(intent);
-            }
-        });
-
-
+        btnsgte.setOnClickListener(this::onClickBtnSgte);
     }
 
-    public void parseArray(JSONArray jsonArray){
+    public void onClickBtnSgte(View view){
+        if (this.respuesta!=""){
+            ArrayList<String> respuestas = new ArrayList<>();
+            respuestas.add(respuesta);
+            Intent intent = new Intent(Pregunta1.this, Pregunta2.class);
+            intent.putStringArrayListExtra("Respuesta",respuestas);
+            Toast.makeText(this,"Pregunta 1 : "+ this.respuesta, Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+        }else{
+            Toast.makeText(this, "Selecciona una respuesta ",Toast.LENGTH_SHORT).show();
+        }
+    }
 
+    public void onCheckedListener(View view){
+        boolean checked = ((RadioButton ) view).isChecked();
+        switch (view.getId()){
+            case R.id.rdbtn1:
+                if (checked)this.respuesta = "Siempre";
+                break;
+            case R.id.rdbtn2:
+                if (checked) this.respuesta = "Frecuentemente";
+                break;
+            case R.id.rdbtn3:
+                if (checked) this.respuesta = "A veces";
+                break;
+            case R.id.rdbtn4:
+                if (checked) this.respuesta = "Rara vez";
+                break;
+            case R.id.rdbtn5:
+                if (checked) this.respuesta = "Nunca";
+                break;
+        }
     }
 }
