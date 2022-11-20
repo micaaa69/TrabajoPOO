@@ -53,5 +53,10 @@ public class Pregunta3 extends AppCompatActivity {
 
 
     }
+    public void mostrarPanel(View view){
+        boolean checked = ((RadioButton) view).isChecked();
+
+
+    }
 
 }

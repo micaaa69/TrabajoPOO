@@ -32,12 +32,12 @@ public class Pregunta6 extends AppCompatActivity {
         btnsgte = findViewById(R.id.btnsgte);
         btnante = findViewById(R.id.btnante);
 
-        /*btnsgte.setOnClickListener(new View.OnClickListener(){
+        btnsgte.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view  ) {
-                Intent intent = new Intent(Pregunta4.this, Pregunta5.class);
+                Intent intent = new Intent(Pregunta6.this, Pregunta7.class);
                 startActivity(intent);
             }
-        });*/
+        });
         btnante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,11 +48,11 @@ public class Pregunta6 extends AppCompatActivity {
 
 
         });
-        /*public void opcion(View view){
-            boolean checked =(RadioButton) view).();
 
-        }
-        public void opcion(View view ){
-            boolean checked = ((RadioButton) view).isChecked();}*/
+    }
+    public void mostrarPanel(View view){
+        boolean checked = ((RadioButton) view).isChecked();
+
+
     }
 }

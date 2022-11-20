@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-public class Pregunta4 extends AppCompatActivity {
+public class Pregunta7 extends AppCompatActivity {
     private TextView preg1;
     private RadioButton rdbtn1;
     private RadioButton rdbtn2;
@@ -22,7 +22,7 @@ public class Pregunta4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pregunta4);
+        setContentView(R.layout.activity_pregunta7);
         preg1 = findViewById(R.id.preg1);
         rdbtn1 = findViewById(R.id.rdbtn1);
         rdbtn2 = findViewById(R.id.rdbtn2);
@@ -32,21 +32,19 @@ public class Pregunta4 extends AppCompatActivity {
         btnsgte = findViewById(R.id.btnsgte);
         btnante = findViewById(R.id.btnante);
 
-        btnsgte.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view  ) {
-                Intent intent = new Intent(Pregunta4.this, Pregunta5.class);
+        btnsgte.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(Pregunta7.this, Pregunta8.class);
                 startActivity(intent);
             }
         });
         btnante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Pregunta4.this, Pregunta3.class);
+                Intent intent = new Intent(Pregunta7.this, Pregunta6.class);
                 startActivity(intent);
 
             }
-
-
         });
     }
     public void mostrarPanel(View view){
@@ -54,5 +52,5 @@ public class Pregunta4 extends AppCompatActivity {
 
 
     }
-
 }
+
