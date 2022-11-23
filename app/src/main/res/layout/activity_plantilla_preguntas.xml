@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/plantilla"
     android:layout_width="match_parent"
@@ -8,65 +7,87 @@
     android:background="@color/fondo"
     android:orientation="vertical"
     tools:context=".PlantillaPreguntas">
-
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"/>
     <ListView
         android:id="@+id/contenedor_preguntas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/letra2bold"
+        />
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"/>
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:fontFamily="@font/letra2bold"
+        >
 
         <RadioButton
             android:id="@+id/rdbtn11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Siempre" />
+            android:text="@string/R_Siempre"
+            android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/rdbtn22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="@string/R_Frec"
+            android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/rdbtn33"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="@string/R_Avc"
+            android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/rdbtn44"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="@string/R_RaraV"
+            android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/rdbtn55"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/R_Nunca"
+            android:textColor="@color/black"/>
     </RadioGroup>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_ante"
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="@string/btn_ante"
+            android:textColor="@color/black"
+            android:background="@color/fondo"/>
 
         <Button
             android:id="@+id/btn_sgte"
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="@string/btn_sgte"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"
+            android:background="@color/fondo"/>
+
     </LinearLayout>
 
 </LinearLayout>

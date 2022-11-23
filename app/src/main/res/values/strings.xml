@@ -37,4 +37,12 @@
         <item name="R5">Nunca</item>
     </array>
 
+    <string name="R_Siempre">Siempre</string>
+    <string name="R_Frec">Frecuentemente</string>
+    <string name="R_Avc">A veces</string>
+    <string name="R_RaraV">Rara vez</string>
+    <string name="R_Nunca">Nunca</string>
+
+    <string name="btn_sgte">Siguiente</string>
+    <string name="btn_ante">Anterior</string>
 </resources>
