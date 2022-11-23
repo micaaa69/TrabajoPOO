@@ -70,19 +70,22 @@
                         android:id="@+id/radioButton"
                         android:layout_width="123dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/tipo_alumno" />
+                        android:text="@string/tipo_alumno"
+                        android:textColor="@color/black"/>
 
                     <RadioButton
                         android:id="@+id/radioButton2"
                         android:layout_width="155dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/tipo_admin" />
+                        android:text="@string/tipo_admin"
+                        android:textColor="@color/black"/>
 
                     <RadioButton
                         android:id="@+id/radioButton3"
                         android:layout_width="122dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/tipo_profesor" />
+                        android:text="@string/tipo_profesor"
+                        android:textColor="@color/black"/>
                 </RadioGroup>
             </LinearLayout>
 
@@ -155,7 +158,8 @@
                         android:fontFamily="@font/letra2bold"
                         android:text="@string/sexo_masculino"
                         android:textSize="20sp"
-                        app:buttonTint="#245061" />
+                        app:buttonTint="#245061"
+                        android:textColor="@color/black"/>
 
                     <RadioButton
                         android:id="@+id/rb_mujer"
@@ -165,7 +169,8 @@
                         android:fontFamily="@font/letra2bold"
                         android:text="@string/sexo_femenino"
                         android:textSize="20sp"
-                        app:buttonTint="#245061" />
+                        app:buttonTint="#245061"
+                        android:textColor="@color/black"/>
                 </RadioGroup>
             </LinearLayout>
 
@@ -195,7 +200,8 @@
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
                     android:hint="@string/txt_format_date"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:textColor="@color/black"/>
 
                 <ImageButton
                     android:id="@+id/btn_calendario"
