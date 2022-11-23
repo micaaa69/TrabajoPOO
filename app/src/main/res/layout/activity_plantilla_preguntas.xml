@@ -20,7 +20,6 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"/>
     <RadioGroup
-        android:id="@+id/grupo_respuestas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="50dp"
@@ -33,9 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/R_Siempre"
-            android:background="@drawable/borderbutton"
-            android:textColor="@color/black"
-            android:layout_marginBottom="10dp"/>
+            android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/rdbtn22"
@@ -43,8 +40,7 @@
             android:layout_height="wrap_content"
             android:text="@string/R_Frec"
             android:background="@drawable/borderbutton"
-            android:textColor="@color/black"
-            android:layout_marginBottom="10dp"/>
+            android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/rdbtn33"
@@ -52,8 +48,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/borderbutton"
             android:text="@string/R_Avc"
-            android:textColor="@color/black"
-            android:layout_marginBottom="10dp"/>
+            android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/rdbtn44"
@@ -61,8 +56,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/borderbutton"
             android:text="@string/R_RaraV"
-            android:textColor="@color/black"
-            android:layout_marginBottom="10dp"/>
+            android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/rdbtn55"
@@ -70,24 +64,20 @@
             android:background="@drawable/borderbutton"
             android:layout_height="wrap_content"
             android:text="@string/R_Nunca"
-            android:textColor="@color/black"
-            android:layout_marginBottom="10dp"/>
+            android:textColor="@color/black"/>
     </RadioGroup>
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_ante"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_width="100dp"
+
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/btn_ante"
             android:textColor="@color/black"
@@ -95,10 +85,11 @@
 
         <Button
             android:id="@+id/btn_sgte"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/btn_sgte"
+            android:layout_marginLeft="10dp"
             android:textColor="@color/black"
             android:background="@color/fondo"/>
 
