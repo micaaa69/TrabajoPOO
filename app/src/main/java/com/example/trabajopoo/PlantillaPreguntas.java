@@ -34,6 +34,8 @@ public class PlantillaPreguntas extends AppCompatActivity {
     private final String URL_API ="http://trabajopoo.kirudental.net/api/apiPregunta/listarTodos";
     private ArrayList<String> preguntas, respuestas;
     private ArrayList<Integer> id_item;
+    private Pregunta [] lista_preguntas;
+    private AdaptadorPregunta [] lista_adaptadorPregunta;
     private String [] respuesta_item;
     private Pregunta pregunta;
     private  AdaptadorPregunta adaptadorPregunta;
@@ -58,6 +60,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
         respuestas = new ArrayList<>();
         id_item = new ArrayList<>();
 
+
         RequestQueue request = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_API, new Response.Listener<String>() {
             @Override
@@ -66,23 +69,25 @@ public class PlantillaPreguntas extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(response);
                         JSONArray jsonArray = jsonObject.getJSONArray("data");
+                        lista_preguntas = new Pregunta[10];
+                        lista_adaptadorPregunta = new AdaptadorPregunta[10];
+
                         for(int i=0; i<10; i++){
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             //Guardamos las preguntas en un ArrayList
-                            preguntas.add(jsonObject1.getString("etiqueta"));
+                            String titulo = "Pregunta "+(i+1);
+                            String preg = jsonObject1.getString("etiqueta");
+
+                            lista_preguntas[i] = new Pregunta(preg,titulo);
+                            ArrayList<Pregunta> preguntaArrayList = new ArrayList<>();
+                            preguntaArrayList.add(lista_preguntas[i]);
+
+                            lista_adaptadorPregunta[i] = new AdaptadorPregunta(getApplicationContext(), preguntaArrayList);
                         }
 
-                        pregunta = new Pregunta();
-                        pregunta.setPregunta(preguntas.get(pagina));
-                        pregunta.setTitulo("Pregunta"+(pagina+1));
-
-                        ArrayList<Pregunta> item_pregunta = new ArrayList<>();
-                        item_pregunta.add(pregunta);
-
-                        adaptadorPregunta = new AdaptadorPregunta(getApplicationContext(), item_pregunta);
-                        contenedor_preguntas.setAdapter(adaptadorPregunta);
-
+                        contenedor_preguntas.setAdapter(lista_adaptadorPregunta[pagina]);
                         progressDialog.dismiss();
+
                     }catch (JSONException ex){
                         ex.printStackTrace();
                     }
@@ -139,14 +144,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
                 grupoRespuestas.clearCheck();
 
                 btn_ante.setVisibility(View.VISIBLE);
-                pregunta.setTitulo("Pregunta "+(pagina+1));
-                pregunta.setPregunta(preguntas.get(pagina));
-
-                ArrayList<Pregunta> item_pregunta = new ArrayList<>();
-                item_pregunta.add(pregunta);
-
-                adaptadorPregunta = new AdaptadorPregunta(this, item_pregunta);
-                contenedor_preguntas.setAdapter(adaptadorPregunta);
+                contenedor_preguntas.setAdapter(lista_adaptadorPregunta[pagina]);
 
             }
         }else{
@@ -160,15 +158,8 @@ public class PlantillaPreguntas extends AppCompatActivity {
 
             if (pagina == 0) btn_ante.setVisibility(View.GONE);
 
-            //Cambiar el titulo y cambiar la pregunta a la pregunta anterior
-            pregunta.setTitulo("Pregunta" + (pagina + 1));
-            pregunta.setPregunta(preguntas.get(pagina));
-
-            ArrayList<Pregunta> item_pregunta = new ArrayList<>();
-            item_pregunta.add(pregunta);
-
-            adaptadorPregunta = new AdaptadorPregunta(this, item_pregunta);
-            contenedor_preguntas.setAdapter(adaptadorPregunta);
+            respuesta_item[pagina] = this.radio_respuesta;
+            contenedor_preguntas.setAdapter(lista_adaptadorPregunta[pagina]);
 
             int id_anterior= this.id_item.get(pagina);
             switch (id_anterior){
