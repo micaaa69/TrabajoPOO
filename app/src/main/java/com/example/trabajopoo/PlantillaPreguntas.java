@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -32,11 +33,14 @@ public class PlantillaPreguntas extends AppCompatActivity {
     private ListView contenedor_preguntas;
     private final String URL_API ="http://trabajopoo.kirudental.net/api/apiPregunta/listarTodos";
     private ArrayList<String> preguntas, respuestas;
+    private ArrayList<Integer> id_item;
+    private String [] respuesta_item;
     private Pregunta pregunta;
     private  AdaptadorPregunta adaptadorPregunta;
     private ProgressDialog progressDialog;
     private int pagina = 0;
     private String radio_respuesta = "";
+    private RadioGroup grupoRespuestas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +53,10 @@ public class PlantillaPreguntas extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
+        // TODO: iniciar variables locales
         preguntas = new ArrayList<>();
         respuestas = new ArrayList<>();
+        id_item = new ArrayList<>();
 
         RequestQueue request = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_API, new Response.Listener<String>() {
@@ -94,7 +100,10 @@ public class PlantillaPreguntas extends AppCompatActivity {
     }
 
     public void iniciarComponentes(){
+
+        grupoRespuestas = findViewById(R.id.grupo_respuestas);
         contenedor_preguntas = findViewById(R.id.contenedor_preguntas);
+        respuesta_item = new String[10];
 
         rdbtn1 = findViewById(R.id.rdbtn11);
         rdbtn1.setOnClickListener(this::onCheckedListener);
@@ -113,17 +122,46 @@ public class PlantillaPreguntas extends AppCompatActivity {
 
         btn_ante = findViewById(R.id.btn_ante);
         btn_ante.setVisibility(View.GONE);
+        btn_ante.setOnClickListener(this::onClickBtnAnte);
 
         btn_sgte = findViewById(R.id.btn_sgte);
-        btn_sgte.setOnClickListener(this::onClickBtnSgte);
+        btn_sgte.setOnClickListener(this::mostrarPreguntas);
     }
 
-    public void onClickBtnSgte(View view){
-        if (pagina < preguntas.size()){
-            pagina+=1;
+    public void mostrarPreguntas(View view){
+        if (this.radio_respuesta!=""){
+            if (pagina < preguntas.size()){
+                pagina+=1;
 
-            btn_ante.setVisibility(View.VISIBLE);
-            pregunta.setTitulo("Pregunta "+(pagina+1));
+                if (pagina == preguntas.size()-1) btn_sgte.setText("Terminar");
+
+                respuesta_item[pagina] = this.radio_respuesta;
+                grupoRespuestas.clearCheck();
+
+                btn_ante.setVisibility(View.VISIBLE);
+                pregunta.setTitulo("Pregunta "+(pagina+1));
+                pregunta.setPregunta(preguntas.get(pagina));
+
+                ArrayList<Pregunta> item_pregunta = new ArrayList<>();
+                item_pregunta.add(pregunta);
+
+                adaptadorPregunta = new AdaptadorPregunta(this, item_pregunta);
+                contenedor_preguntas.setAdapter(adaptadorPregunta);
+
+            }
+        }else{
+            Toast.makeText(this, "Selecciona una opción",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onClickBtnAnte(View view){
+        if (pagina>=0) {
+            pagina -= 1;
+
+            if (pagina == 0) btn_ante.setVisibility(View.GONE);
+
+            //Cambiar el titulo y cambiar la pregunta a la pregunta anterior
+            pregunta.setTitulo("Pregunta" + (pagina + 1));
             pregunta.setPregunta(preguntas.get(pagina));
 
             ArrayList<Pregunta> item_pregunta = new ArrayList<>();
@@ -131,6 +169,22 @@ public class PlantillaPreguntas extends AppCompatActivity {
 
             adaptadorPregunta = new AdaptadorPregunta(this, item_pregunta);
             contenedor_preguntas.setAdapter(adaptadorPregunta);
+
+            int id_anterior= this.id_item.get(pagina);
+            switch (id_anterior){
+                case R.id.rdbtn11:
+                    this.rdbtn1.setChecked(true);
+                    break;
+                case R.id.rdbtn22:
+                    this.rdbtn2.setChecked(true);
+                    break;
+                case R.id.rdbtn33:
+                    this.rdbtn3.setChecked(true);
+                    break;
+                case R.id.rdbtn44:
+                    this.rdbtn4.setChecked(true);
+                    break;
+            }
         }
     }
 
@@ -138,20 +192,28 @@ public class PlantillaPreguntas extends AppCompatActivity {
         boolean checked = ((RadioButton ) view).isChecked();
         switch (view.getId()){
             case R.id.rdbtn11:
-                if (checked) this.radio_respuesta = "Siempre";
+                if (checked) {
+                    this.radio_respuesta = "Siempre";
+                    this.id_item.add(R.id.rdbtn11);
+                }
                 break;
             case R.id.rdbtn22:
                 if (checked) this.radio_respuesta = "Frecuentemente";
+                this.id_item.add(R.id.rdbtn22);
                 break;
             case R.id.rdbtn33:
                 if (checked) this.radio_respuesta = "A veces";
+                this.id_item.add(R.id.rdbtn33);
                 break;
             case R.id.rdbtn44:
                 if (checked) this.radio_respuesta = "Rara vez";
+                this.id_item.add(R.id.rdbtn44);
                 break;
             case R.id.rdbtn55:
                 if (checked) this.radio_respuesta = "Nunca";
+                this.id_item.add(R.id.rdbtn55);
                 break;
         }
     }
+
 }

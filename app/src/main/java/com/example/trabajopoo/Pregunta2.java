@@ -2,6 +2,7 @@ package com.example.trabajopoo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,16 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -22,21 +33,61 @@ public class Pregunta2 extends AppCompatActivity {
     private RadioButton rdbtn5;
     private Button btnsgte;
     private Button btnante;
-    private ListView contenedorPreguntas;
+    private ListView listView;
     private ArrayList <Pregunta> mPregunta;
-
-    private String respuesta = "";
+    private ProgressDialog progressDialog;
+    private Pregunta pregunta1;
+    private String respuesta ="";
+    private AdaptadorPregunta adaptadorPregunta;
+    final String URL_PREGUNTAS = "http://trabajopoo.kirudental.net/api/apiPregunta/listarPorId/2";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pregunta2);
 
-        Pregunta pregunta = new Pregunta("Una hora antes de ir a dormir realizo ejercicio físico.","Pregunta 2");
-        this.mPregunta = new ArrayList<>();
-        this.mPregunta.add(pregunta);
-        AdaptadorPregunta adaptadorPregunta = new AdaptadorPregunta(this, this.mPregunta);
-        this.contenedorPreguntas = findViewById(R.id.contenedor_preguntas2);
-        this.contenedorPreguntas.setAdapter(adaptadorPregunta);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Por favor espera ..");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        pregunta1 = new Pregunta();
+
+        RequestQueue request = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_PREGUNTAS, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (response!=null){
+                    progressDialog.dismiss();
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        JSONObject data = jsonObject.getJSONObject("data");
+                        String pregunta_texto = data.getString("etiqueta");
+                        pregunta1.setPregunta(pregunta_texto);
+                        pregunta1.setTitulo("Pregunta 1");
+
+                        mPregunta = new ArrayList<>();
+                        System.out.println("=====================================================");
+                        System.out.println(pregunta1);
+                        mPregunta.add(pregunta1);
+
+                        adaptadorPregunta = new AdaptadorPregunta(getApplicationContext(), mPregunta);
+                        listView = findViewById(R.id.contenedor_pregunta);
+                        listView.setAdapter(adaptadorPregunta);
+                        System.out.println(pregunta1);
+
+                    }catch (JSONException ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        request.add(stringRequest);
 
         rdbtn1 = findViewById(R.id.rdbtn11);
         rdbtn1.setOnClickListener(this::onCheckedListener);
@@ -69,6 +120,10 @@ public class Pregunta2 extends AppCompatActivity {
 
         });
         btnsgte.setOnClickListener(this::onClickBtnSgte);
+    }
+    public void onClickBtnAnte(View view){
+        ArrayList<String> respuestas = getIntent().getStringArrayListExtra("Respuesta");
+
     }
     public void onClickBtnSgte(View view){
         if (this.respuesta != ""){

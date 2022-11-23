@@ -94,10 +94,6 @@ public class Pregunta1 extends AppCompatActivity {
 
         request.add(stringRequest);
 
-
-
-
-
         this.rdbtn1 = findViewById(R.id.rdbtn11);
         this.rdbtn1.setOnClickListener(this::onCheckedListener);
 

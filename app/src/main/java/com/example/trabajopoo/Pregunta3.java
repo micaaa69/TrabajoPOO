@@ -31,6 +31,7 @@ public class Pregunta3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pregunta3);
+
         this.contenedor_preguntas = findViewById(R.id.contendor_preguntas3);
         Pregunta pregunta = new Pregunta("Consumo alcohol, tabaco o café cuatro horas antes de ir a la cama","Pregunta 3");
         this.mPreguntas = new ArrayList<>();
@@ -53,35 +54,30 @@ public class Pregunta3 extends AppCompatActivity {
         rdbtn5 = findViewById(R.id.rdbtn5);
         rdbtn5.setOnClickListener(this::onCheckedListener);
 
-
-
         btnante = findViewById(R.id.btnante);
-        btnante.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Pregunta3.this, Pregunta2.class);
-                startActivity(intent);
-
-            }
-
-
-        });
+        btnante.setOnClickListener(this::onClickBtnAnte);
 
         btnsgte = findViewById(R.id.btnsgt);
         btnsgte.setOnClickListener(this::onClickBtnSgte);
+    }
+    public void onClickBtnAnte(View view){
+        Intent intent = new Intent(Pregunta3.this, Pregunta2.class);
+        startActivity(intent);
     }
     public void onClickBtnSgte(View view){
         if (this.respuesta != ""){
             ArrayList<String> respuestas= getIntent().getStringArrayListExtra("Respuesta");
             respuestas.add(this.respuesta);
+
             Intent intent = new Intent(Pregunta3.this, Pregunta4.class);
             intent.putStringArrayListExtra("Respuesta",respuestas);
             startActivity(intent);
+
         }else {
             Toast.makeText(this, "Seleccione una respuesta", Toast.LENGTH_SHORT).show();
         }
-
     }
+
     public void onCheckedListener(View view){
         boolean checked = ((RadioButton ) view).isChecked();
         switch (view.getId()){
@@ -102,5 +98,4 @@ public class Pregunta3 extends AppCompatActivity {
                 break;
         }
     }
-
 }
