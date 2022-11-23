@@ -3,6 +3,7 @@ package com.example.trabajopoo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +44,8 @@ public class PlantillaPreguntas extends AppCompatActivity {
     private int pagina = 0;
     private String radio_respuesta = "";
     private RadioGroup grupoRespuestas;
+    private Boolean [] ifChecked;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +61,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
         // TODO: iniciar variables locales
         preguntas = new ArrayList<>();
         respuestas = new ArrayList<>();
-        id_item = new ArrayList<>();
+
 
 
         RequestQueue request = Volley.newRequestQueue(this);
@@ -69,8 +72,11 @@ public class PlantillaPreguntas extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(response);
                         JSONArray jsonArray = jsonObject.getJSONArray("data");
+
                         lista_preguntas = new Pregunta[10];
                         lista_adaptadorPregunta = new AdaptadorPregunta[10];
+                        id_item = new ArrayList<>();
+                        ifChecked = new Boolean[10];
 
                         for(int i=0; i<10; i++){
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
@@ -78,11 +84,13 @@ public class PlantillaPreguntas extends AppCompatActivity {
                             String titulo = "Pregunta "+(i+1);
                             String preg = jsonObject1.getString("etiqueta");
 
+                            ifChecked[i] = false;
                             lista_preguntas[i] = new Pregunta(preg,titulo);
                             ArrayList<Pregunta> preguntaArrayList = new ArrayList<>();
                             preguntaArrayList.add(lista_preguntas[i]);
 
                             lista_adaptadorPregunta[i] = new AdaptadorPregunta(getApplicationContext(), preguntaArrayList);
+                            id_item.add(0);
                         }
 
                         contenedor_preguntas.setAdapter(lista_adaptadorPregunta[pagina]);
@@ -134,17 +142,30 @@ public class PlantillaPreguntas extends AppCompatActivity {
     }
 
     public void mostrarPreguntas(View view){
+
         if (this.radio_respuesta!=""){
-            if (pagina < preguntas.size()){
+            if (pagina < lista_preguntas.length){
                 pagina+=1;
 
-                if (pagina == preguntas.size()-1) btn_sgte.setText("Terminar");
+                if (pagina == lista_preguntas.length-1) {
+                    btn_sgte.setText("Terminar");
+                } else{
+                    btn_sgte.setText("Continuar");
+                }
 
                 respuesta_item[pagina] = this.radio_respuesta;
-                grupoRespuestas.clearCheck();
 
-                btn_ante.setVisibility(View.VISIBLE);
+
+                if (ifChecked[pagina]){
+                    positionRadioChecked(pagina);
+                }else{
+                    ifChecked[pagina]=true;
+                    grupoRespuestas.clearCheck();
+                }
+
                 contenedor_preguntas.setAdapter(lista_adaptadorPregunta[pagina]);
+                btn_ante.setVisibility(View.VISIBLE);
+            }else{
 
             }
         }else{
@@ -157,52 +178,57 @@ public class PlantillaPreguntas extends AppCompatActivity {
             pagina -= 1;
 
             if (pagina == 0) btn_ante.setVisibility(View.GONE);
-
-            respuesta_item[pagina] = this.radio_respuesta;
             contenedor_preguntas.setAdapter(lista_adaptadorPregunta[pagina]);
 
-            int id_anterior= this.id_item.get(pagina);
-            switch (id_anterior){
-                case R.id.rdbtn11:
-                    this.rdbtn1.setChecked(true);
-                    break;
-                case R.id.rdbtn22:
-                    this.rdbtn2.setChecked(true);
-                    break;
-                case R.id.rdbtn33:
-                    this.rdbtn3.setChecked(true);
-                    break;
-                case R.id.rdbtn44:
-                    this.rdbtn4.setChecked(true);
-                    break;
-            }
+            positionRadioChecked(pagina);
         }
     }
 
+    public void enviarData(){
+
+    }
+
+    public void positionRadioChecked(int position){
+        int id_radio = id_item.get(position);
+        switch (id_radio){
+            case R.id.rdbtn11:
+                this.rdbtn1.setChecked(true);
+                break;
+            case R.id.rdbtn22:
+                this.rdbtn2.setChecked(true);
+                break;
+            case R.id.rdbtn33:
+                this.rdbtn3.setChecked(true);
+                break;
+            case R.id.rdbtn44:
+                this.rdbtn4.setChecked(true);
+                break;
+            case R.id.rdbtn55:
+                this.rdbtn5.setChecked(true);
+        }
+    }
     public void onCheckedListener(View view){
         boolean checked = ((RadioButton ) view).isChecked();
         switch (view.getId()){
             case R.id.rdbtn11:
-                if (checked) {
-                    this.radio_respuesta = "Siempre";
-                    this.id_item.add(R.id.rdbtn11);
-                }
+                if (checked) this.radio_respuesta = "Siempre";
+                this.id_item.set(pagina, R.id.rdbtn11);
                 break;
             case R.id.rdbtn22:
                 if (checked) this.radio_respuesta = "Frecuentemente";
-                this.id_item.add(R.id.rdbtn22);
+                this.id_item.set(pagina, R.id.rdbtn22);
                 break;
             case R.id.rdbtn33:
                 if (checked) this.radio_respuesta = "A veces";
-                this.id_item.add(R.id.rdbtn33);
+                this.id_item.set(pagina, R.id.rdbtn33);
                 break;
             case R.id.rdbtn44:
                 if (checked) this.radio_respuesta = "Rara vez";
-                this.id_item.add(R.id.rdbtn44);
+                this.id_item.set(pagina, R.id.rdbtn44);
                 break;
             case R.id.rdbtn55:
                 if (checked) this.radio_respuesta = "Nunca";
-                this.id_item.add(R.id.rdbtn55);
+                this.id_item.set(pagina, R.id.rdbtn55);
                 break;
         }
     }
