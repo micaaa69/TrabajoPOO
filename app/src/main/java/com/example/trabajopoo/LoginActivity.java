@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, Pregunta1.class);
+                Intent intent = new Intent(LoginActivity.this, PlantillaPreguntas.class);
                 startActivity(intent);
             }
         });
@@ -145,7 +145,7 @@ public class LoginActivity extends AppCompatActivity {
         } //falta
 
         if (!fecha_s.equals("")){
-            Intent iIngresarPreguntas = new Intent(this, Pregunta1.class);
+            Intent iIngresarPreguntas = new Intent(this, PlantillaPreguntas.class);
             iIngresarPreguntas.putExtra("userName",nombre);
             startActivity(iIngresarPreguntas);
         }
