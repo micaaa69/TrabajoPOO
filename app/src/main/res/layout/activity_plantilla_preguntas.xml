@@ -33,7 +33,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/R_Siempre"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:background="@drawable/borderbutton"
+            android:layout_marginBottom="10dp"/>
 
         <RadioButton
             android:id="@+id/rdbtn22"
@@ -41,7 +43,8 @@
             android:layout_height="wrap_content"
             android:text="@string/R_Frec"
             android:background="@drawable/borderbutton"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"/>
 
         <RadioButton
             android:id="@+id/rdbtn33"
@@ -49,7 +52,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/borderbutton"
             android:text="@string/R_Avc"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"/>
 
         <RadioButton
             android:id="@+id/rdbtn44"
@@ -57,7 +61,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/borderbutton"
             android:text="@string/R_RaraV"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"/>
 
         <RadioButton
             android:id="@+id/rdbtn55"
@@ -65,7 +70,8 @@
             android:background="@drawable/borderbutton"
             android:layout_height="wrap_content"
             android:text="@string/R_Nunca"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"/>
     </RadioGroup>
 
     <LinearLayout
@@ -82,7 +88,7 @@
             android:layout_weight="1"
             android:text="@string/btn_ante"
             android:textColor="@color/black"
-            android:background="@color/fondo"/>
+            android:backgroundTint="@color/fondo"/>
 
         <Button
             android:id="@+id/btn_sgte"
@@ -92,7 +98,7 @@
             android:text="@string/btn_sgte"
             android:layout_marginLeft="10dp"
             android:textColor="@color/black"
-            android:background="@color/fondo"/>
+            android:backgroundTint="@color/fondo"/>
 
     </LinearLayout>
 

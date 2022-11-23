@@ -20,7 +20,7 @@
             android:fontFamily="@font/titulo"
             android:gravity="center|center_horizontal"
             android:text="@string/txt_bienvenido"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="40sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
