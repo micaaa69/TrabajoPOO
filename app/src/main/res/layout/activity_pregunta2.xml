@@ -25,7 +25,7 @@
         android:paddingRight="30dp">
 
         <RadioButton
-            android:id="@+id/rdbtn1"
+            android:id="@+id/rdbtn11"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginBottom="10dp"

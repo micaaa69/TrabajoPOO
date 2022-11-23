@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ public class Pregunta2 extends AppCompatActivity {
         this.contenedorPreguntas = findViewById(R.id.contenedor_preguntas2);
         this.contenedorPreguntas.setAdapter(adaptadorPregunta);
 
-        rdbtn1 = findViewById(R.id.rdbtn1);
+        rdbtn1 = findViewById(R.id.rdbtn11);
         rdbtn1.setOnClickListener(this::onCheckedListener);
 
         rdbtn2 = findViewById(R.id.rdbtn2);
@@ -88,7 +87,7 @@ public class Pregunta2 extends AppCompatActivity {
     public void onCheckedListener(View view){
         boolean checked = ((RadioButton ) view).isChecked();
         switch (view.getId()){
-            case R.id.rdbtn1:
+            case R.id.rdbtn11:
                 if (checked)this.respuesta = "Siempre";
                 break;
             case R.id.rdbtn2:

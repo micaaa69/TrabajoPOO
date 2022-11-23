@@ -28,7 +28,7 @@ public class Pregunta6 extends AppCompatActivity {
         setContentView(R.layout.activity_pregunta6);
         preg1 = findViewById(R.id.preg1);
 
-        rdbtn1 = findViewById(R.id.rdbtn1);
+        rdbtn1 = findViewById(R.id.rdbtn11);
         rdbtn1.setOnClickListener(this::onCheckedListener);
 
         rdbtn2 = findViewById(R.id.rdbtn2);
@@ -69,7 +69,7 @@ public class Pregunta6 extends AppCompatActivity {
     public void onCheckedListener(View view){
         boolean checked = ((RadioButton ) view).isChecked();
         switch (view.getId()){
-            case R.id.rdbtn1:
+            case R.id.rdbtn11:
                 if (checked)this.respuesta = "Siempre";
                 break;
             case R.id.rdbtn2:

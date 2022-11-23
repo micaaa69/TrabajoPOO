@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -28,7 +27,7 @@ public class Pregunta10 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pregunta10);
         preg1 = findViewById(R.id.preg1);
-        rdbtn1 = findViewById(R.id.rdbtn1);
+        rdbtn1 = findViewById(R.id.rdbtn11);
         rdbtn2 = findViewById(R.id.rdbtn2);
         rdbtn3 = findViewById(R.id.rdbtn3);
         rdbtn4 = findViewById(R.id.rdbtn4);
@@ -43,7 +42,7 @@ public class Pregunta10 extends AppCompatActivity {
             }
         });*/
         ArrayList<String> respuestas = getIntent().getStringArrayListExtra("Respuesta");
-        
+
 
         btnante.setOnClickListener(new View.OnClickListener() {
             @Override

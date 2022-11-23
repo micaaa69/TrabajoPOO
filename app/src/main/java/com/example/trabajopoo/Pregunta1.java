@@ -3,26 +3,27 @@ package com.example.trabajopoo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.Response.ErrorListener;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import adaptador.AdaptadorPregunta;
 
@@ -37,12 +38,46 @@ public class Pregunta1 extends AppCompatActivity {
     ListView listView;
     ArrayList<Pregunta> mPregunta;
 
+    String url = "http://trabajopoo.kirudental.net/api/apiPelicula/listarTodos";
+    String url2 = "http://trabajopoo.kirudental.net/api/listarPreguntas/listarTodos";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pregunta1);
 
-        Pregunta pregunta1 = new Pregunta("En las noches me acuesto (o voy a la cama) a diferentes horas","Pregunta 1");
+        Pregunta pregunta1 = new Pregunta();
+        String URL_PREGUNTAS = "http://trabajopoo.kirudental.net/api/apiPregunta/listarPorId/1";
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Por favor espera ..");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        RequestQueue request = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_PREGUNTAS, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (response!=null){
+                    progressDialog.dismiss();
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        JSONObject data = jsonObject.getJSONObject("data");
+                        pregunta1.setPregunta(data.getString("etiqueta"));
+                        pregunta1.setTitulo("Pregunta 1");
+                    }catch (JSONException ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        request.add(stringRequest);
+
         mPregunta = new ArrayList<>();
         mPregunta.add(pregunta1);
 
@@ -50,7 +85,7 @@ public class Pregunta1 extends AppCompatActivity {
         listView = findViewById(R.id.contenedor_pregunta);
         listView.setAdapter(adaptadorPregunta);
 
-        this.rdbtn1 = findViewById(R.id.rdbtn1);
+        this.rdbtn1 = findViewById(R.id.rdbtn11);
         this.rdbtn1.setOnClickListener(this::onCheckedListener);
 
         this.rdbtn2 = findViewById(R.id.rdbtn2);
@@ -67,6 +102,11 @@ public class Pregunta1 extends AppCompatActivity {
 
         btnsgte = findViewById(R.id.btnsgt);
         btnsgte.setOnClickListener(this::onClickBtnSgte);
+    }
+    public ArrayList<String> llamarAPI(Context context){
+        ArrayList <String> mArrayApi = new ArrayList<>();
+
+        return mArrayApi;
     }
 
     public void onClickBtnSgte(View view){
@@ -85,7 +125,7 @@ public class Pregunta1 extends AppCompatActivity {
     public void onCheckedListener(View view){
         boolean checked = ((RadioButton ) view).isChecked();
         switch (view.getId()){
-            case R.id.rdbtn1:
+            case R.id.rdbtn11:
                 if (checked)this.respuesta = "Siempre";
                 break;
             case R.id.rdbtn2:
@@ -102,4 +142,9 @@ public class Pregunta1 extends AppCompatActivity {
                 break;
         }
     }
+
 }
+
+/*
+
+ */

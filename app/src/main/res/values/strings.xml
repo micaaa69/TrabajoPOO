@@ -20,6 +20,21 @@
     <string name="txt_date">Nacimiento:</string>
     <string name="txt_format_date">DD-MM-AAAA</string>
     <string name="btn_ingresar">INGRESAR</string>
+    <string name="title_activity_plantilla_preguntas">PlantillaPreguntas</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <array name="Respuestas">
+        <item name="R1">Siempre</item>
+        <item name="R2">Frecuentemente</item>
+        <item name="R3">A veces</item>
+        <item name="R4">Rara Vez</item>
+        <item name="R5">Nunca</item>
+    </array>
 
 </resources>
