@@ -155,7 +155,6 @@ public class PlantillaPreguntas extends AppCompatActivity {
 
                 respuesta_item[pagina] = this.radio_respuesta;
 
-
                 if (ifChecked[pagina]){
                     positionRadioChecked(pagina);
                 }else{
@@ -166,7 +165,9 @@ public class PlantillaPreguntas extends AppCompatActivity {
                 contenedor_preguntas.setAdapter(lista_adaptadorPregunta[pagina]);
                 btn_ante.setVisibility(View.VISIBLE);
             }else{
-
+                Intent intent = new Intent(PlantillaPreguntas.this, ActivityFinal.class);
+                intent.putExtra("Respuestas",respuesta_item);
+                startActivity(intent);
             }
         }else{
             Toast.makeText(this, "Selecciona una opción",Toast.LENGTH_SHORT).show();
