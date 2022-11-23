@@ -38,9 +38,6 @@ public class Pregunta1 extends AppCompatActivity {
     ListView listView;
     ArrayList<Pregunta> mPregunta;
 
-    String url = "http://trabajopoo.kirudental.net/api/apiPelicula/listarTodos";
-    String url2 = "http://trabajopoo.kirudental.net/api/listarPreguntas/listarTodos";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +59,10 @@ public class Pregunta1 extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(response);
                         JSONObject data = jsonObject.getJSONObject("data");
+                        System.out.println(data);
                         pregunta1.setPregunta(data.getString("etiqueta"));
                         pregunta1.setTitulo("Pregunta 1");
+
                     }catch (JSONException ex){
                         ex.printStackTrace();
                     }
