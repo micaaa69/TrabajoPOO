@@ -32,6 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/R_Siempre"
+            android:background="@drawable/borderbutton"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/letra2bold"
             android:textColor="@color/black"/>
 
         <RadioButton
@@ -39,7 +42,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/R_Frec"
+            android:fontFamily="@font/letra2bold"
             android:background="@drawable/borderbutton"
+            android:layout_marginBottom="10dp"
             android:textColor="@color/black"/>
 
         <RadioButton
@@ -47,6 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/borderbutton"
+            android:fontFamily="@font/letra2bold"
+            android:layout_marginBottom="10dp"
             android:text="@string/R_Avc"
             android:textColor="@color/black"/>
 
@@ -55,6 +62,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/borderbutton"
+            android:fontFamily="@font/letra2bold"
+            android:layout_marginBottom="10dp"
             android:text="@string/R_RaraV"
             android:textColor="@color/black"/>
 
@@ -63,6 +72,8 @@
             android:layout_width="match_parent"
             android:background="@drawable/borderbutton"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/letra2bold"
             android:text="@string/R_Nunca"
             android:textColor="@color/black"/>
     </RadioGroup>
@@ -75,13 +86,13 @@
 
         <Button
             android:id="@+id/btn_ante"
-            android:layout_width="100dp"
-
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/btn_ante"
-            android:textColor="@color/black"
-            android:background="@color/fondo"/>
+            android:fontFamily="@font/letra2bold"
+            android:text="Anterior"
+            android:textColor="#000000"
+            android:backgroundTint="#C8E7F2"/>
 
         <Button
             android:id="@+id/btn_sgte"
@@ -89,9 +100,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/btn_sgte"
+            android:fontFamily="@font/letra2bold"
             android:layout_marginLeft="10dp"
             android:textColor="@color/black"
-            android:background="@color/fondo"/>
+            android:backgroundTint="#C8E7F2"/>
 
     </LinearLayout>
 
