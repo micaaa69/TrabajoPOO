@@ -184,10 +184,6 @@ public class PlantillaPreguntas extends AppCompatActivity {
         }
     }
 
-    public void enviarData(){
-
-    }
-
     public void positionRadioChecked(int position){
         int id_radio = id_item.get(position);
         switch (id_radio){
