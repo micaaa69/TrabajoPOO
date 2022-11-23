@@ -37,18 +37,25 @@ public class Pregunta1 extends AppCompatActivity {
     private Button btnsgte;
     ListView listView;
     ArrayList<Pregunta> mPregunta;
+    Pregunta pregunta1;
+    ProgressDialog progressDialog;
 
+    AdaptadorPregunta adaptadorPregunta;
+
+    final String URL_PREGUNTAS = "http://trabajopoo.kirudental.net/api/apiPregunta/listarPorId/1";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pregunta1);
 
-        Pregunta pregunta1 = new Pregunta();
-        String URL_PREGUNTAS = "http://trabajopoo.kirudental.net/api/apiPregunta/listarPorId/1";
-        ProgressDialog progressDialog = new ProgressDialog(this);
+
+
+        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Por favor espera ..");
         progressDialog.setCancelable(false);
         progressDialog.show();
+
+        pregunta1 = new Pregunta();
 
         RequestQueue request = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_PREGUNTAS, new Response.Listener<String>() {
@@ -59,9 +66,19 @@ public class Pregunta1 extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(response);
                         JSONObject data = jsonObject.getJSONObject("data");
-                        System.out.println(data);
-                        pregunta1.setPregunta(data.getString("etiqueta"));
+                        String pregunta_texto = data.getString("etiqueta");
+                        pregunta1.setPregunta(pregunta_texto);
                         pregunta1.setTitulo("Pregunta 1");
+
+                        mPregunta = new ArrayList<>();
+                        System.out.println("=====================================================");
+                        System.out.println(pregunta1);
+                        mPregunta.add(pregunta1);
+
+                        adaptadorPregunta = new AdaptadorPregunta(getApplicationContext(), mPregunta);
+                        listView = findViewById(R.id.contenedor_pregunta);
+                        listView.setAdapter(adaptadorPregunta);
+                        System.out.println(pregunta1);
 
                     }catch (JSONException ex){
                         ex.printStackTrace();
@@ -77,12 +94,9 @@ public class Pregunta1 extends AppCompatActivity {
 
         request.add(stringRequest);
 
-        mPregunta = new ArrayList<>();
-        mPregunta.add(pregunta1);
 
-        AdaptadorPregunta adaptadorPregunta = new AdaptadorPregunta(this ,this.mPregunta);
-        listView = findViewById(R.id.contenedor_pregunta);
-        listView.setAdapter(adaptadorPregunta);
+
+
 
         this.rdbtn1 = findViewById(R.id.rdbtn11);
         this.rdbtn1.setOnClickListener(this::onCheckedListener);
@@ -107,6 +121,9 @@ public class Pregunta1 extends AppCompatActivity {
 
         return mArrayApi;
     }
+    public void cargarPreguntas(){
+
+    };
 
     public void onClickBtnSgte(View view){
         if (this.respuesta!=""){

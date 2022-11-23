@@ -5,7 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import adaptador.AdaptadorPregunta;
@@ -13,35 +26,43 @@ import adaptador.AdaptadorPregunta;
 public class PlantillaPreguntas extends AppCompatActivity {
     private RadioButton rdbtn1, rdbtn2, rdbtn3, rdbtn4, rdbtn5;
     private ListView contenedor_preguntas;
+    private final String URL_API ="http://trabajopoo.kirudental.net/api/apiPregunta/listarTodos";
+    private ArrayList<String> preguntas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plantilla_preguntas);
 
         int contador = 0;
-        String [] preguntas = {"¿Te acuestas cansado en las noches?","¿Realizas ejercicio por las noches?"
-                ,"Tomas bebidas energizantes antes de irte a dormir"};
-
         iniciarRadioButtons();
 
-        String titulo = "Pregunta";
+        RequestQueue request = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_API, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (response!=null){
 
-        String [] respuestas = getResources().getStringArray(R.array.Respuestas);
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        JSONArray jsonArray = jsonObject.getJSONArray("data");
 
-        ArrayList<Pregunta> mArray = new ArrayList<>();
 
 
-        this.rdbtn1.setText(respuestas[0]);
-        this.rdbtn2.setText(respuestas[1]);
-        this.rdbtn3.setText(respuestas[2]);
-        this.rdbtn4.setText(respuestas[3]);
-        this.rdbtn5.setText(respuestas[4]);
+                    }catch (JSONException ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        for (int i=0; i<preguntas.length; i++){
-            Pregunta pregunta = new Pregunta(preguntas[i],titulo+i);
-            mArray.add(pregunta);
-        }
-        AdaptadorPregunta adaptadorPregunta = new AdaptadorPregunta(this, mArray);
+        request.add(stringRequest);
+
+
     }
     public void iniciarRadioButtons(){
         rdbtn1 = findViewById(R.id.rdbtn11);

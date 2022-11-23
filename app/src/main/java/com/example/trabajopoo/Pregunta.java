@@ -8,6 +8,14 @@ public class Pregunta {
         this.titulo = titulo;
     }
 
+    @Override
+    public String toString() {
+        return "Pregunta{" +
+                "pregunta='" + pregunta + '\'' +
+                ", titulo='" + titulo + '\'' +
+                '}';
+    }
+
     public String getPregunta() {
         return pregunta;
     }
