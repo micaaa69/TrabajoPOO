@@ -82,7 +82,8 @@
             android:layout_weight="1"
             android:text="@string/btn_ante"
             android:textColor="@color/black"
-            android:background="@color/fondo"/>
+            android:background="@color/fondo"
+            android:layout_marginRight="30dp"/>
 
         <Button
             android:id="@+id/btn_sgte"
@@ -90,9 +91,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/btn_sgte"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="30dp"
             android:textColor="@color/black"
-            android:background="@color/fondo"/>
+            android:background="@color/fondo"
+             />
 
     </LinearLayout>
 
