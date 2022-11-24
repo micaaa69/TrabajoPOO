@@ -16,6 +16,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -25,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     String[] facultades={"Ingeniería","Empresas","Derecho","Comunicaciones","Humanidades","Educación"};
     //String[] profesiones={"Profesor","Alumno","Administrativo"};
     String facultad;
-    //String profesion;
     EditText userName;
     TextView fecha;
     ImageButton btn_calendario;
@@ -49,7 +51,12 @@ public class LoginActivity extends AppCompatActivity {
         int month=calendario.get(Calendar.MONTH);
         int day=calendario.get(Calendar.DAY_OF_MONTH);
 
-
+        try{
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("idFacultad",15);
+        }catch (JSONException ex){
+            ex.printStackTrace();
+        }
 
         btn_calendario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,14 +114,9 @@ public class LoginActivity extends AppCompatActivity {
 
         });
 
-
-
-
-
         ArrayAdapter<String>  adapterItems= new ArrayAdapter<String>(this,R.layout.list_item,facultades);
 
         autoCompleteTxt.setAdapter(adapterItems);
-
         autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
@@ -122,14 +124,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-        btnIngresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, PlantillaPreguntas.class);
-                startActivity(intent);
-            }
-        });
+        btnIngresar.setOnClickListener(this::Ingresar);
 
     }
 
@@ -138,11 +133,10 @@ public class LoginActivity extends AppCompatActivity {
         String nombre=userName.getText().toString();
         String fecha_s=fecha.getText().toString();
 
-
         if (fecha_s.equals("")){
             Toast error= Toast.makeText(this, "Ingrese la fecha",Toast.LENGTH_LONG);
             error.show();
-        } //falta
+        }
 
         if (!fecha_s.equals("")){
             Intent iIngresarPreguntas = new Intent(this, PlantillaPreguntas.class);

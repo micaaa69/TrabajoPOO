@@ -32,7 +32,10 @@ public class PlantillaPreguntas extends AppCompatActivity {
     private RadioButton rdbtn1, rdbtn2, rdbtn3, rdbtn4, rdbtn5;
     private Button btn_sgte, btn_ante;
     private ListView contenedor_preguntas;
+
     private final String URL_API ="http://trabajopoo.kirudental.net/api/apiPregunta/listarTodos";
+    private final String URL_ALTERNATIVA = "http://trabajopoo.kirudental.net/api/apiAlternativa/listarTodos";
+
     private ArrayList<String> preguntas, respuestas;
     private ArrayList<Integer> id_item;
     private Pregunta [] lista_preguntas;
@@ -45,6 +48,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
     private String radio_respuesta = "";
     private RadioGroup grupoRespuestas;
     private Boolean [] ifChecked;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +69,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
 
 
         RequestQueue request = Volley.newRequestQueue(this);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_API, new Response.Listener<String>() {
+        StringRequest requestPreguntas = new StringRequest(Request.Method.GET, URL_API, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response!=null){
@@ -83,9 +87,10 @@ public class PlantillaPreguntas extends AppCompatActivity {
                             //Guardamos las preguntas en un ArrayList
                             String titulo = "Pregunta "+(i+1);
                             String preg = jsonObject1.getString("etiqueta");
+                            int idPregunta = jsonObject1.getInt("idPregunta");
 
                             ifChecked[i] = false;
-                            lista_preguntas[i] = new Pregunta(preg,titulo);
+                            lista_preguntas[i] = new Pregunta(idPregunta,preg,titulo);
                             ArrayList<Pregunta> preguntaArrayList = new ArrayList<>();
                             preguntaArrayList.add(lista_preguntas[i]);
 
@@ -108,7 +113,38 @@ public class PlantillaPreguntas extends AppCompatActivity {
             }
         });
 
-        request.add(stringRequest);
+        StringRequest requestAlternativas = new StringRequest(Request.Method.GET, URL_ALTERNATIVA, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (response!=null){
+                    try {
+                        int contador = 0;
+                        JSONObject jsonObject = new JSONObject(response);
+                        JSONArray data = jsonObject.getJSONArray("data");
+                        for (int i=0; i<50; i++){
+                            contador+=1;
+                            JSONObject jsonObject1 = data.getJSONObject(i);
+                            int idPregunta = jsonObject1.getInt("idPregunta");
+                            int idAlternativa = jsonObject1.getInt("idAlternativa");
+                            String etiqueta = jsonObject1.getString("etiqueta");
+
+                            if (contador%5==0){
+                                Alternativa alternativa = new Alternativa(idAlternativa,idPregunta,etiqueta);
+
+                            }
+                        }
+                    }catch (JSONException ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        request.add(requestPreguntas);
 
     }
 
@@ -142,7 +178,6 @@ public class PlantillaPreguntas extends AppCompatActivity {
     }
 
     public void mostrarPreguntas(View view){
-
         if (this.radio_respuesta!=""){
             if (pagina < lista_preguntas.length){
                 pagina+=1;
@@ -154,6 +189,8 @@ public class PlantillaPreguntas extends AppCompatActivity {
                 }
 
                 respuesta_item[pagina] = this.radio_respuesta;
+                // Reseteo el valor de radio_respuesta
+                this.radio_respuesta="";
 
                 if (ifChecked[pagina]){
                     positionRadioChecked(pagina);
