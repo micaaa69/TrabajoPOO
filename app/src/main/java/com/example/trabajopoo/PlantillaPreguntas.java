@@ -48,7 +48,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
     private String radio_respuesta = "";
     private RadioGroup grupoRespuestas;
     private Boolean [] ifChecked;
-
+    private int idPersona;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,8 @@ public class PlantillaPreguntas extends AppCompatActivity {
         // TODO: iniciar variables locales
         preguntas = new ArrayList<>();
         respuestas = new ArrayList<>();
-
+        //Almacenamos el idPersona que devuelve el API
+        idPersona = getIntent().getIntExtra("idPersona",1);
 
 
         RequestQueue request = Volley.newRequestQueue(this);
@@ -130,6 +131,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
                             String etiqueta = jsonObject1.getString("etiqueta");
 
                             if (contador%5==0){
+                                contador=0;
                                 Alternativa alternativa = new Alternativa(idAlternativa,idPregunta,etiqueta);
 
                             }

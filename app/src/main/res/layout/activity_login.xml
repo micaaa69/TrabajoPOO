@@ -62,6 +62,7 @@
                     android:textSize="20sp" />
 
                 <RadioGroup
+                    android:id="@+id/grupo_tipoPerso"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -70,21 +71,18 @@
                         android:id="@+id/rbalum"
                         android:layout_width="123dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/tipo_alumno"
                         android:textColor="@color/black"/>
 
                     <RadioButton
                         android:id="@+id/rbadmin"
                         android:layout_width="155dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/tipo_admin"
                         android:textColor="@color/black"/>
 
                     <RadioButton
                         android:id="@+id/rbprofe"
                         android:layout_width="122dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/tipo_profesor"
                         android:textColor="@color/black"/>
                 </RadioGroup>
             </LinearLayout>
@@ -128,7 +126,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 tools:layout_marginBottom="18dp">
 
@@ -157,9 +155,9 @@
                         android:checked="true"
                         android:fontFamily="@font/letra2bold"
                         android:text="@string/sexo_masculino"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
-                        app:buttonTint="#245061"
-                        android:textColor="@color/black"/>
+                        app:buttonTint="#245061" />
 
                     <RadioButton
                         android:id="@+id/rb_mujer"
@@ -168,9 +166,9 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/letra2bold"
                         android:text="@string/sexo_femenino"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
-                        app:buttonTint="#245061"
-                        android:textColor="@color/black"/>
+                        app:buttonTint="#245061" />
                 </RadioGroup>
             </LinearLayout>
 

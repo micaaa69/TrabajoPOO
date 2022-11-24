@@ -3,11 +3,12 @@ package com.example.trabajopoo;
 public class Facultad {
     private int IdFacultad;
     private String sigla, nombreFacultad;
-
-    public Facultad(int idFacultad, String sigla, String nombreFacultad) {
+    private boolean isChecked;
+    public Facultad(int idFacultad, String sigla, String nombreFacultad, boolean isChecked) {
         IdFacultad = idFacultad;
         this.sigla = sigla;
         this.nombreFacultad = nombreFacultad;
+        this.isChecked = isChecked;
     }
 
     @Override
@@ -41,5 +42,13 @@ public class Facultad {
 
     public void setnombreFacultad(String nombreFacultad) {
         this.nombreFacultad = nombreFacultad;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 }
