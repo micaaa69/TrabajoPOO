@@ -14,11 +14,8 @@ public class ActivityFinal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
-        String [] respuestas = getIntent().getStringArrayExtra("Respuestas");
-        System.out.println(respuestas);
-    }
-
-    public void enviarDatos(View view){
 
     }
+
+
 }

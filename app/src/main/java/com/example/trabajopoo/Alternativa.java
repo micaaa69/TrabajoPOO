@@ -1,13 +1,20 @@
 package com.example.trabajopoo;
 
 public class Alternativa {
-    int idCuestionario, idPregunta;
-    String etiqueta;
-
-    public Alternativa(int idCuestionario, int idPregunta, String etiqueta) {
+    private int idCuestionario, idPregunta;
+    private String etiqueta;
+    private boolean isChecked;
+    public Alternativa(){}
+    public Alternativa(int idCuestionario, int idPregunta, String etiqueta){
         this.idCuestionario = idCuestionario;
         this.idPregunta = idPregunta;
         this.etiqueta = etiqueta;
+    }
+    public Alternativa(int idCuestionario, int idPregunta, String etiqueta, boolean isChecked) {
+        this.idCuestionario = idCuestionario;
+        this.idPregunta = idPregunta;
+        this.etiqueta = etiqueta;
+        this.isChecked = isChecked;
     }
 
     public int getIdCuestionario() {
@@ -32,6 +39,14 @@ public class Alternativa {
 
     public void setEtiqueta(String etiqueta) {
         this.etiqueta = etiqueta;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
     }
 
     @Override

@@ -17,6 +17,14 @@
         tools:targetApi="31">
 
         <activity
+            android:name=".ActivityFinal"
+            android:exported="false"
+            android:label="Final">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".PlantillaPreguntas"
             android:exported="true"
             android:label="@string/title_activity_plantilla_preguntas"
