@@ -58,7 +58,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
     private int idPersona;
     private JSONArray json_respuestas;
     private int contador_alter=0;
-    private int idRespuesta;
+    private int idRespuesta, idPregunta = 1;
     private boolean terminaronPreguntas = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +82,6 @@ public class PlantillaPreguntas extends AppCompatActivity {
         respuestas_final = new HashMap<>();
         //Almacenamos el idPersona que devuelve el API
         idPersona = getIntent().getIntExtra("idPersona",1);
-
 
         RequestQueue request = Volley.newRequestQueue(this);
         StringRequest requestPreguntas = new StringRequest(Request.Method.GET, URL_API, new Response.Listener<String>() {
@@ -147,7 +146,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
                             String etiqueta = jsonObject1.getString("etiqueta");
 
                             //Adaptador
-                            Alternativa alternativa = new Alternativa(idAlternativa,idPregunta,etiqueta, false);
+                            Alternativa alternativa = new Alternativa(idAlternativa,idPregunta,etiqueta);
                             list_alternativas.add(alternativa);
                         }
                     }catch (JSONException ex){
@@ -200,6 +199,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
                 respuesta_item[pagina] = this.radio_respuesta;
                 alternativas[pagina].setEtiqueta(this.radio_respuesta);
                 alternativas[pagina].setIdCuestionario(this.idRespuesta);
+
                 System.out.println(pagina);
                 System.out.println("contador_alter -> "+contador_alter);
                 System.out.println("Id_respuesta -> "+idRespuesta);
@@ -223,11 +223,12 @@ public class PlantillaPreguntas extends AppCompatActivity {
                     btn_sgte.setText("Continuar");
                     pagina++;
                 }
-
             }else{
                 for (int i=0; i<10; i++){
                     enviarData(i);
+
                 }
+                System.out.println("IdPersona -> "+idPersona);
                 Intent intent = new Intent(this, ActivityFinal.class);
                 startActivity(intent);
             }
@@ -237,7 +238,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
     }
 
     public void onClickBtnAnte(View view){
-        if (pagina>=0) {
+        if (pagina>0) {
             pagina -= 1;
             contador_alter-=5;
             if (pagina == 0) btn_ante.setVisibility(View.GONE);
@@ -263,6 +264,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
                 break;
             case R.id.rdbtn55:
                 this.rdbtn5.setChecked(true);
+                break;
         }
     }
     public void onCheckedListener(View view){
@@ -321,6 +323,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
 
                 params.put("idPersona", Integer.toString(idPersona));
                 params.put("idAlternativa",Integer.toString(alternativas[j].getIdCuestionario()));
+
                 return params;
             }
         };
