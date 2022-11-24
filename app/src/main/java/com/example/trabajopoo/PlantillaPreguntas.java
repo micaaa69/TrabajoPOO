@@ -113,6 +113,7 @@ public class PlantillaPreguntas extends AppCompatActivity {
             }
         });
 
+
         StringRequest requestAlternativas = new StringRequest(Request.Method.GET, URL_ALTERNATIVA, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
